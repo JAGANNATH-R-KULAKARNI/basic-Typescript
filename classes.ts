@@ -1,4 +1,15 @@
 class Vehicle{
+  color : string;
+  
+  constructor(color : string){
+    this.color=color;
+  }
+  //OR
+
+  //constructor(public color:string){}
+  //This constructor is equivelent to above constructor
+ //An instance of color will be created by itself
+
   public drive():void{
     console.log('ponk ponk');
   }
@@ -9,6 +20,10 @@ class Vehicle{
 };
 
 class Car extends Vehicle{
+
+  constructor(public wheels :number, color : string){
+    super(color);
+  }
  public drive():void{
    console.log('vroom vroom');
  }
@@ -23,10 +38,10 @@ class Car extends Vehicle{
  }
 }
 
-const vehicle=new Vehicle();
+const vehicle=new Vehicle('red');
 vehicle.drive();
 //vehicle.honk(); (protected modifier : only accessible by child classes)
 
-const car=new Car();
+const car=new Car(10,'blue');
 car.drive();//vroom vroom
 //car.drive2(); (we cant call this)
